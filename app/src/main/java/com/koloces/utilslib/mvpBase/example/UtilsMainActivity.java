@@ -1,19 +1,15 @@
 package com.koloces.utilslib.mvpBase.example;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.koloces.utilslib.R;
-import com.koloces.utilslib.api.example.TestBaseBean;
 import com.koloces.utilslib.api.example.TestBean;
 import com.koloces.utilslib.api.example.TestNetWorkHome;
 import com.koloces.utilslib.api.example.TestNetWorkLogin;
 import com.koloces.utilslib.api.http.OnHttpResultListener;
-import com.koloces.utilslib.mvpBase.example.TestLoginActivity;
 import com.koloces.utilslib.utils.ToastUtils;
 import com.koloces.utilslib.utils.activity.ActivityManager;
 import com.luck.picture.lib.entity.LocalMedia;
