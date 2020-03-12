@@ -1,0 +1,74 @@
+package com.koloces.utilslib.mvpBase.example;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.koloces.utilslib.R;
+import com.koloces.utilslib.api.example.TestBaseBean;
+import com.koloces.utilslib.api.example.TestBean;
+import com.koloces.utilslib.api.example.TestNetWorkHome;
+import com.koloces.utilslib.api.example.TestNetWorkLogin;
+import com.koloces.utilslib.api.http.OnHttpResultListener;
+import com.koloces.utilslib.mvpBase.example.TestLoginActivity;
+import com.koloces.utilslib.utils.ToastUtils;
+import com.koloces.utilslib.utils.activity.ActivityManager;
+import com.luck.picture.lib.entity.LocalMedia;
+
+import java.util.HashMap;
+import java.util.List;
+
+import io.reactivex.disposables.Disposable;
+
+public class UtilsMainActivity extends AppCompatActivity {
+    private List<LocalMedia> imgs;
+    private TestNetWorkHome homeNet;
+    private TestNetWorkLogin loginNet;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ActivityManager.getInstance().addActivity(this);
+
+        loginNet = new TestNetWorkLogin();
+        findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testNet();
+            }
+        });
+
+    }
+
+    private void testNet() {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("mobile", "18223608751");
+        map.put("captcha", "123456");
+        loginNet.login(map, new OnHttpResultListener<TestBean>() {
+            @Override
+            public void onSuccess(TestBean result) {
+                ToastUtils.toast(result.data.im_token);
+            }
+
+            @Override
+            public void onFailed(int errCode, String msg) {
+                ToastUtils.toast(msg);
+            }
+
+            @Override
+            public void getDisposable(Disposable disposable) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        ActivityManager.getInstance().removeActivity(this);
+        super.onDestroy();
+    }
+}
