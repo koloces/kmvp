@@ -23,11 +23,11 @@ import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
  */
 public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity implements BaseView {
     //打log时使用
-    private String TAG;
-    public ViewGroup mView;
+    protected String TAG;
+    protected ViewGroup mView;
     private LoadingDialog mLoadingDialog;
     protected T mPresenter;
-    private BaseActivity mActivity;
+    protected BaseActivity mActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -18,15 +18,16 @@ import com.koloces.utilslib.utils.ToastUtils;
  */
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView  {
 
-    private String TAG;
-    private View mView;
-    private Context mContext;
+    protected String TAG;
+    protected View mView;
+    protected Context mContext;
     private LoadingDialog mLoadingDialog;
     protected T mPresenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TAG = this.getClass().getSimpleName();
         mContext = getActivity();
     }
 

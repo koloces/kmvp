@@ -1,10 +1,11 @@
-apply plugin: 'com.android.library'
+//apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-//        applicationId "com.koloces.utilslib"
+        applicationId "com.koloces.utilslib"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 100
@@ -70,4 +71,7 @@ dependencies {
 
     //鲁班图片压缩https://github.com/Curzibn/Luban
     api 'top.zibin:Luban:1.1.8'
+
+    //eventBus
+    api 'org.greenrobot:eventbus:3.0.0'
 }
