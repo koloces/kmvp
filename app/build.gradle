@@ -1,11 +1,11 @@
-//apply plugin: 'com.android.library'
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+//apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.koloces.utilslib"
+//        applicationId "com.koloces.utilslib"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 100
