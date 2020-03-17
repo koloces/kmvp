@@ -49,6 +49,6 @@ public class TestLoginFragment extends BaseFragment<TestPresenter> implements Te
 
     @Override
     public void loginSuccess() {
-//        ActivityManager.getInstance().toNextActivity();
+//        ActivityUtils.getInstance().toNextActivity();
     }
 }

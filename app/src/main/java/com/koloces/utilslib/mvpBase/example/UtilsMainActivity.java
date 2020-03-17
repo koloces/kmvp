@@ -11,7 +11,7 @@ import com.koloces.utilslib.api.example.TestNetWorkHome;
 import com.koloces.utilslib.api.example.TestNetWorkLogin;
 import com.koloces.utilslib.api.http.OnHttpResultListener;
 import com.koloces.utilslib.utils.ToastUtils;
-import com.koloces.utilslib.utils.activity.ActivityManager;
+import com.koloces.utilslib.utils.activity.ActivityUtils;
 import com.luck.picture.lib.entity.LocalMedia;
 
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class UtilsMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityManager.getInstance().addActivity(this);
+        ActivityUtils.getInstance().addActivity(this);
 
         loginNet = new TestNetWorkLogin();
         findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,7 @@ public class UtilsMainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        ActivityManager.getInstance().removeActivity(this);
+        ActivityUtils.getInstance().removeActivity(this);
         super.onDestroy();
     }
 }

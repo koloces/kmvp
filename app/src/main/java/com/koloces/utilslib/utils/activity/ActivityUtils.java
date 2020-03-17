@@ -11,19 +11,19 @@ import java.util.Stack;
 /**
  * Created by koloces on 2019/4/7
  */
-public class ActivityManager {
-    private static ActivityManager instance;
+public class ActivityUtils {
+    private static ActivityUtils instance;
     private Stack<Activity> activityStack;// activity栈
 
-    private ActivityManager() {
+    private ActivityUtils() {
         activityStack = new Stack<>();
     }
 
-    public static ActivityManager getInstance() {
+    public static ActivityUtils getInstance() {
         if (instance == null) {
-            synchronized (ActivityManager.class) {
+            synchronized (ActivityUtils.class) {
                 if (instance == null) {
-                    instance = new ActivityManager();
+                    instance = new ActivityUtils();
                 }
             }
         }

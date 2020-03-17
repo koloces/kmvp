@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.koloces.utilslib.dialog.LoadingDialog;
 import com.koloces.utilslib.utils.PermissionsUtils;
 import com.koloces.utilslib.utils.ToastUtils;
-import com.koloces.utilslib.utils.activity.ActivityManager;
+import com.koloces.utilslib.utils.activity.ActivityUtils;
 import com.qmuiteam.qmui.arch.QMUIActivity;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
@@ -35,7 +35,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity
         TAG = this.getClass().getSimpleName();
         mActivity = this;
 
-        ActivityManager.getInstance().addActivity(this);
+        ActivityUtils.getInstance().addActivity(this);
         setBeforeSetContentView();
         mView = (ViewGroup) LayoutInflater.from(this).inflate(getLayoutId(), null);
         setContentView(mView);
@@ -188,7 +188,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity
 
     @Override
     protected void onDestroy() {
-        ActivityManager.getInstance().removeActivity(this);
+        ActivityUtils.getInstance().removeActivity(this);
         if (mLoadingDialog != null){
             mLoadingDialog.dismiss();
             mLoadingDialog = null;

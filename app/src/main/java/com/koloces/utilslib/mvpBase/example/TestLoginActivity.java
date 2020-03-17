@@ -49,6 +49,6 @@ public class TestLoginActivity extends BaseActivity<TestPresenter> implements Te
 
     @Override
     public void loginSuccess() {
-//        ActivityManager.getInstance().toNextActivity();
+//        ActivityUtils.getInstance().toNextActivity();
     }
 }
