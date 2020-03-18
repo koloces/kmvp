@@ -11,7 +11,7 @@ import androidx.multidex.MultiDex;
 
 import com.koloces.utilslib.api.http.OkHttp3Utils;
 import com.koloces.utilslib.utils.LogUtils;
-import com.koloces.utilslib.utils.ToastUtils;
+import com.koloces.utilslib.utils.SPUtil;
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 
 public abstract class BaseApplication extends Application implements Application.ActivityLifecycleCallbacks {
@@ -27,6 +27,8 @@ public abstract class BaseApplication extends Application implements Application
     public void onCreate() {
         super.onCreate();
         instance = this;
+        //初始化SP
+        SPUtil.init(this);
         //初始化Log
         LogUtils.init(isDebug());
         /* 注册全局activity生命周期监听 */

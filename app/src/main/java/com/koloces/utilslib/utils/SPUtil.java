@@ -18,8 +18,8 @@ public class SPUtil {
 
 	private SPUtil(){}
 
-	static {
-		spf = BaseApplication.getInstance().getSharedPreferences(BaseApplication.getInstance().getPackageName(), Context.MODE_PRIVATE);
+	public static void init(Context context){
+		spf = BaseApplication.getInstance().getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
 	}
 
 	/**
