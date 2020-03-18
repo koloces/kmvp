@@ -1,5 +1,6 @@
 package com.koloces.utilslib.mvpBase;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -21,13 +22,14 @@ import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
  * Created by koloces on 2020/3/10
  * Activity基类
  */
-public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity implements BaseView {
+public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity implements BaseView {
     //打log时使用
     protected String TAG;
     protected ViewGroup mView;
-    private LoadingDialog mLoadingDialog;
+    //可以在项目中自定义等待dialog重写实现
+    public Dialog mLoadingDialog;
     protected T mPresenter;
-    protected BaseActivity mActivity;
+    protected UIActivity mActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +53,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity
      * @return
      */
     protected abstract int getLayoutId();
+
+    /**
+     * 黄油刀绑定
+     */
+    public void initAfterBindLayout(){}
 
     /**
      * 初始化View
@@ -155,7 +162,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends QMUIActivity
         if (!mLoadingDialog.isShowing()){
             showLoading();
         }
-        mLoadingDialog.setText(str);
+        if (mLoadingDialog instanceof LoadingDialog) {
+            ((LoadingDialog) mLoadingDialog).setText(str);
+        }
     }
 
     /**

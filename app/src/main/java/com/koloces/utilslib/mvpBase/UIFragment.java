@@ -1,5 +1,6 @@
 package com.koloces.utilslib.mvpBase;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,12 +17,13 @@ import com.koloces.utilslib.utils.ToastUtils;
 /**
  * Created by koloces on 2020/3/12
  */
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView  {
+public abstract class UIFragment<T extends BasePresenter> extends Fragment implements BaseView  {
 
     protected String TAG;
     protected View mView;
     protected Context mContext;
-    private LoadingDialog mLoadingDialog;
+    //可以在项目中自定义等待dialog重写实现
+    public Dialog mLoadingDialog;
     protected T mPresenter;
 
     @Override
@@ -48,6 +50,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
      */
     protected abstract int getLayout();
 
+    /**
+     * 绑定黄油刀用
+     */
+    public void initAfterBindLayout(){}
+
     protected abstract void initView();
 
     protected abstract T initPresenter();
@@ -73,7 +80,9 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         if (!mLoadingDialog.isShowing()){
             showLoading();
         }
-        mLoadingDialog.setText(str);
+        if (mLoadingDialog instanceof LoadingDialog) {
+            ((LoadingDialog) mLoadingDialog).setText(str);
+        }
     }
 
     /**

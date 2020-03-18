@@ -3,12 +3,12 @@ package com.koloces.utilslib.mvpBase.example;
 import android.view.View;
 
 import com.koloces.utilslib.R;
-import com.koloces.utilslib.mvpBase.BaseFragment;
+import com.koloces.utilslib.mvpBase.UIFragment;
 
 /**
  * Created by koloces on 2020/3/12
  */
-public class TestLoginFragment extends BaseFragment<TestPresenter> implements TestView {
+public class TestLoginFragment extends UIFragment<TestPresenter> implements TestView {
 
     @Override
     protected int getLayout() {

@@ -3,13 +3,13 @@ package com.koloces.utilslib.mvpBase.example;
 import android.view.View;
 
 import com.koloces.utilslib.R;
-import com.koloces.utilslib.mvpBase.BaseActivity;
+import com.koloces.utilslib.mvpBase.UIActivity;
 
 /**
  * Created by koloces on 2020/3/12
  * 例子:登录界面
  */
-public class TestLoginActivity extends BaseActivity<TestPresenter> implements TestView {
+public class TestLoginActivity extends UIActivity<TestPresenter> implements TestView {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;

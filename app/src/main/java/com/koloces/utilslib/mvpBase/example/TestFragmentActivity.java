@@ -5,7 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.koloces.utilslib.R;
 import com.koloces.utilslib.adapter.FragmentAdapter;
-import com.koloces.utilslib.mvpBase.BaseActivity;
+import com.koloces.utilslib.mvpBase.UIActivity;
 import com.koloces.utilslib.mvpBase.BasePresenter;
 
 import java.util.Collections;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by koloces on 2020/3/12
  */
-public class TestFragmentActivity extends BaseActivity {
+public class TestFragmentActivity extends UIActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.test_fragment_activity;
