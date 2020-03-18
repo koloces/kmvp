@@ -37,6 +37,7 @@ public abstract class UIFragment<T extends BasePresenter> extends Fragment imple
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = LayoutInflater.from(getActivity()).inflate(getLayout(),null);
+        initAfterBindLayout();
         initView();
         mPresenter = initPresenter();
         if (mPresenter != null) {

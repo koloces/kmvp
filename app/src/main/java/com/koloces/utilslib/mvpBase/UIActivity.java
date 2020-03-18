@@ -41,6 +41,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
         setBeforeSetContentView();
         mView = (ViewGroup) LayoutInflater.from(this).inflate(getLayoutId(), null);
         setContentView(mView);
+        initAfterBindLayout();
         initView();
         mPresenter = initPresenter();
         if (mPresenter != null) {
