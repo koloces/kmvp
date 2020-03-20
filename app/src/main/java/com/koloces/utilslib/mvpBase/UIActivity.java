@@ -36,6 +36,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
         super.onCreate(savedInstanceState);
         TAG = this.getClass().getSimpleName();
         mActivity = this;
+        mPresenter = initPresenter();
 
         ActivityUtils.getInstance().addActivity(this);
         setBeforeSetContentView();
@@ -43,7 +44,6 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
         setContentView(mView);
         initAfterBindLayout();
         initView();
-        mPresenter = initPresenter();
         if (mPresenter != null) {
             getLifecycle().addObserver(mPresenter);
         }

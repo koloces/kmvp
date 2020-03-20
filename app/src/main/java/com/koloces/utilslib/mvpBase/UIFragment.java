@@ -38,8 +38,8 @@ public abstract class UIFragment<T extends BasePresenter> extends Fragment imple
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = LayoutInflater.from(getActivity()).inflate(getLayout(),null);
         initAfterBindLayout();
-        initView();
         mPresenter = initPresenter();
+        initView();
         if (mPresenter != null) {
             getLifecycle().addObserver(mPresenter);
         }
