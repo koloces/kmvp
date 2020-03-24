@@ -191,6 +191,15 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
         ToastUtils.toast(msg);
     }
 
+    /**
+     * 禁用换肤{@link com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton} 设置背景灯style可以生效
+     * @return
+     */
+    @Override
+    protected boolean useQMUISkinLayoutInflaterFactory() {
+        return false;
+    }
+
     @Override
     public Context getContext() {
         return mActivity;
@@ -208,4 +217,5 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
         }
         super.onDestroy();
     }
+
 }
