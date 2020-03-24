@@ -33,6 +33,9 @@ public class ToastUtils {
                 return;
             }
         }
+        if (BaseApplication.getInstance() == null){
+            return;
+        }
         if (mToast == null) {
             mToast = Toast.makeText(BaseApplication.getInstance(), str, Toast.LENGTH_SHORT);
         }

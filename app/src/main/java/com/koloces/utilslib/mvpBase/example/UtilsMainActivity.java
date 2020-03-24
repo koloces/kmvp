@@ -30,7 +30,7 @@ public class UtilsMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActivityUtils.getInstance().addActivity(this);
 
-        loginNet = new TestNetWorkLogin();
+//        loginNet = new TestNetWorkLogin();
         findViewById(R.id.text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

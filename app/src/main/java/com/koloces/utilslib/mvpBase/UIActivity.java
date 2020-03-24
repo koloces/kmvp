@@ -51,6 +51,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 设置布局
+     *
      * @return
      */
     protected abstract int getLayoutId();
@@ -58,7 +59,8 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
     /**
      * 黄油刀绑定
      */
-    public void initAfterBindLayout(){}
+    public void initAfterBindLayout() {
+    }
 
     /**
      * 初始化View
@@ -67,28 +69,32 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 初始化presenter
+     *
      * @return
      */
     protected abstract T initPresenter();
 
     /**
      * 设置状态栏白色字体图标
+     *
      * @return
      */
-    protected boolean setStatusTxtWhite(){
+    protected boolean setStatusTxtWhite() {
         return QMUIStatusBarHelper.setStatusBarDarkMode(this);
     }
 
     /**
      * 设置状态栏黑色字体图标
+     *
      * @return
      */
-    protected boolean setStatusTxtBlack(){
+    protected boolean setStatusTxtBlack() {
         return QMUIStatusBarHelper.setStatusBarLightMode(this);
     }
 
     /**
      * 是否允许左滑关闭页面 默认不可以
+     *
      * @return
      */
     @Override
@@ -105,15 +111,16 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 页面文字大小是否跟随系统变化,默认不变化
+     *
      * @return
      */
-    public boolean isTextSizeChange(){
+    public boolean isTextSizeChange() {
         return false;
     }
 
     @Override
     public Resources getResources() {
-        if (isTextSizeChange()){
+        if (isTextSizeChange()) {
             return super.getResources();
         }
         // 字体大小不跟随系统
@@ -126,11 +133,12 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 动态申请权限
-     * @param permissionsResult     权限回调
-     * @param permissions           所需要的权限数组
+     *
+     * @param permissionsResult 权限回调
+     * @param permissions       所需要的权限数组
      */
-    protected void checkPermissions(PermissionsUtils.IPermissionsResult permissionsResult, String... permissions){
-        if (permissions == null || permissions.length == 0){
+    protected void checkPermissions(PermissionsUtils.IPermissionsResult permissionsResult, String... permissions) {
+        if (permissions == null || permissions.length == 0) {
             return;
         }
         //这里的this不是上下文，是Activity对象！
@@ -148,7 +156,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
      */
     @Override
     public void showLoading() {
-        if (mLoadingDialog == null){
+        if (mLoadingDialog == null) {
             mLoadingDialog = new LoadingDialog(this);
         }
         mLoadingDialog.show();
@@ -156,11 +164,12 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 显示loading带文字
+     *
      * @param str
      */
     @Override
     public void showLoading(String str) {
-        if (!mLoadingDialog.isShowing()){
+        if (!mLoadingDialog.isShowing()) {
             showLoading();
         }
         if (mLoadingDialog instanceof LoadingDialog) {
@@ -173,10 +182,10 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
      */
     @Override
     public void hideLoading() {
-        if (mLoadingDialog != null){
+        if (mLoadingDialog != null) {
             try {
                 mLoadingDialog.dismiss();
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -184,6 +193,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 显示错误信息
+     *
      * @param msg
      */
     @Override
@@ -193,11 +203,12 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
 
     /**
      * 禁用换肤{@link com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton} 设置背景灯style可以生效
+     *
      * @return
      */
     @Override
     protected boolean useQMUISkinLayoutInflaterFactory() {
-        return false;
+        return true;
     }
 
     @Override
@@ -208,7 +219,7 @@ public abstract class UIActivity<T extends BasePresenter> extends QMUIActivity i
     @Override
     protected void onDestroy() {
         ActivityUtils.getInstance().removeActivity(this);
-        if (mLoadingDialog != null){
+        if (mLoadingDialog != null) {
             mLoadingDialog.dismiss();
             mLoadingDialog = null;
         }

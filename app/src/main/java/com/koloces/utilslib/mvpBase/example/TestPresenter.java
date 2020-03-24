@@ -17,7 +17,7 @@ public class TestPresenter extends BasePresenterImpl<TestView> {
     private TestNetWorkLogin netLogin;
     public TestPresenter(TestView view) {
         super(view);
-        netLogin = new TestNetWorkLogin();
+//        netLogin = new TestNetWorkLogin();
     }
 
     /**
